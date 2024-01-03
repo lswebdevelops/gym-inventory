@@ -16,10 +16,6 @@ app.set('layout', './layouts/main')
 app.set('view engine', 'ejs');
 
 // routes: 
-// instead> 
-// app.get('/', (req, res) => {
-//     res.send('hello')
-// })
 app.use('/', require('./server/routes/main'))
 
 app.listen(PORT, ()=> {
