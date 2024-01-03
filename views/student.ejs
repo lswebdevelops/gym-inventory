@@ -1,0 +1,63 @@
+<h1>
+    <a class="student-link-h1" href="/students"> <%= data.name %>'s Page</a>
+</h1>
+<div class="div-student-page-container">
+    <div  class="div-student-page-para-container">
+        <p><b>Name: </b>
+            <%= data.name %>
+        </p>
+        <p><b>Points: </b>
+            <%= data.points %>
+        </p>
+        <p><b>Username: </b>
+            <%= data.username %>
+        </p>
+     
+        <p><b>Inicial Weight: </b>
+            <%= data.inicialWeight %>
+        </p>
+        <p><b>Current Weight: </b>
+            <%= data.currentWeight %>
+        </p>
+        <p><b>Age: </b>
+            <%= data.age %> 
+        </p>
+        <p><b>Sex: </b>
+            <%= data.gender %>
+        </p>
+    </div>
+    <div class="div-student-page-img-container">
+        <img class="image-student-page" src="<%= data.gender === 'female' ? '/icons/woman.png' :  '/icons/man.png' %>"
+        alt="<%= data.gender %> icon">
+
+
+    </div>
+
+        <div  class="div-student-page-para2-container">
+
+            <p><b>Height: </b>
+                <%= data.height %> cm
+            </p>
+            <p><b>Last Payment Day: </b>
+                <%= data.lastPaymentDate.toDateString() %>
+            </p>
+            <p><b>Payment Received:</b>
+                <%= data.isPaymentReceived %>
+            </p>
+            <p><b>Attendance Days:</b>
+                <%= data.attendanceDays %>
+            </p>
+            <p><b>Details: </b>
+                <%= data.details %>
+            </p>
+            <p><b>Starting Date: </b>
+                <%= data.applyedToSchoolAt.toDateString() %>
+            </p>
+            <p><b>Last Info Updated: </b>
+                <%= data.updatedAt.toDateString() %>
+            </p>
+        </div>
+      
+    
+   
+</div>

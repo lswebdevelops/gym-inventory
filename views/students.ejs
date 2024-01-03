@@ -1,0 +1,15 @@
+<h1>Students</h1>
+
+<ul class="students-grid">
+  <% data.forEach(student => { %>
+    <li>
+      <a href="/student/<%= student._id %>">
+        <img src="<%= student.gender === 'female' ? '/icons/woman.png' :  '/icons/man.png' %>" alt="<%= student.gender %> icon">
+        <p><b><%= student.name.toUpperCase() %></b></p>
+        <p>Points: <b><%= student.points %></b></p>
+     
+
+      </a>
+    </li>
+  <% }) %>
+</ul>
