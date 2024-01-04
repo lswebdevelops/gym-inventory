@@ -24,20 +24,20 @@ const StudentSchema = new Schema({
     },
     gender: {
         type: String,
-        enum: ['male', 'female', 'other'],
+        enum: ['male', 'female'],
         required: true,
     },
-    inicialWeight: {
+    initialWeight: {
         type: Number, 
-        required: true,
+        required: false, // Set to false temporarily
     },
     currentWeight: {
         type: Number, 
         required: false,
     },
-    applyedToSchoolAt: {
+    appliedToSchoolAt: {
         type: Date, 
-        required: true,
+        required: false, // Set to false temporarily
     },
     height: {
         type: Number, 
@@ -47,11 +47,7 @@ const StudentSchema = new Schema({
         type: Date,
         required: false,
     },
-    isPaymentReceived: {
-        type: Boolean,
-        default: false,
-        required: true,
-    },
+   
     attendanceDays: {
         type: [String], // An array of strings representing days of the week (e.g., ['Monday', 'Wednesday', 'Friday'])
         required: true,

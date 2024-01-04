@@ -1,0 +1,51 @@
+<a href="/dashboard">&larr; Back</a>
+<div class="admin-title">
+    <h2>Add new Student</h2>
+</div>
+
+<form action="/add-student" method="POST">
+
+    <label for="name"><b>Name</b></label>
+    <input type="text" placeholder="Student's Name" name="name">
+
+    <label for="username"><b>Username</b></label>
+    <input type="text" placeholder="Username" name="username">
+
+    <label for="details"><b>Details</b></label>
+    <textarea cols="50" rows="10" name="details"></textarea>
+
+    <label for="age"><b>Age</b></label>
+    <input type="number" placeholder="Age" name="age">
+
+    <label for="gender"><b>Gender</b></label>
+    <select name="gender">
+        <option value="male">Male</option>
+        <option value="female">Female</option>        
+    </select>
+
+    <label for="initialWeight"><b>Initial Weight</b></label>
+    <input type="number" placeholder="Initial Weight" name="initialWeight">
+
+
+
+    <label for="currentWeight"><b>Current Weight</b></label>
+    <input type="number" placeholder="Current Weight" name="currentWeight">
+
+    <label for="appliedToSchoolAt"><b>Applied to School At</b></label>
+    <input type="date" name="appliedToSchoolAt">
+
+    <label for="height"><b>Height</b></label>
+    <input type="number" placeholder="Height" name="height">
+
+    <label for="lastPaymentDate"><b>Last Payment Date</b></label>
+    <input type="date" name="lastPaymentDate">
+   
+
+    <label for="attendanceDays"><b>Attendance Days</b></label>
+    <input type="text" placeholder="Comma-separated days (e.g., Monday,Wednesday,Friday)" name="attendanceDays">
+
+    <label for="points"><b>Points</b></label>
+    <input type="number" placeholder="Points" name="points">
+
+    <input type="submit" value="Add" class="btn">
+</form>

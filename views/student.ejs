@@ -16,12 +16,12 @@
         </p>
         <!-- calculating weight lost/ put on -->
         <p><b>Weight Lost: </b>
-            <%= data.inicialWeight - data.currentWeight %> kg
+            <%= data.initialWeight - data.currentWeight %> kg
         </p>
 
         <!--  -->
-        <p><b>Inicial Weight: </b>
-            <%= data.inicialWeight %> kg
+        <p><b>Initial Weight: </b>
+            <%= data.initialWeight %> kg
         </p>
         <p><b>Current Weight: </b>
             <%= data.currentWeight %> kg
@@ -46,11 +46,9 @@
             <%= data.height %> cm
         </p>
         <p><b>Last Payment Day: </b>
-            <%= data.lastPaymentDate.toDateString() %>
+            <%= data.lastPaymentDate%>
         </p>
-        <p><b>Payment Received:</b>
-            <%= data.isPaymentReceived %>
-        </p>
+       
         <p><b>Attendance Days:</b>
             <%= data.attendanceDays %>
         </p>
@@ -58,10 +56,10 @@
             <%= data.details %>
         </p>
         <p><b>Starting Date: </b>
-            <%= data.applyedToSchoolAt.toDateString() %>
+            <%= data.appliedToSchoolAt %>
         </p>
         <p><b>Last Info Updated: </b>
-            <%= data.updatedAt.toDateString() %>
+            <%= data.updatedAt %>
         </p>
     </div>
 

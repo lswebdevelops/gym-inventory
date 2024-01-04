@@ -1,0 +1,56 @@
+<a href="/dashboard">&larr; Back</a>
+<div class="admin-title">
+    <h2>View / Edit Student</h2>
+</div>
+
+<form action="/delete-student/<%= data._id %>?_method=DELETE" method="POST">
+    <input type="submit" value="Delete" class="btn-delete btn">
+</form>
+
+<form action="/edit-student/<%= data._id %>?_method=PUT" method="POST">
+
+    <label for="name"><b>Name</b></label>
+    <input type="text" placeholder="Student's Name" name="name" value="<%= data.name %>">
+
+    <label for="username"><b>Username</b></label>
+    <input type="text" placeholder="Username" name="username" value="<%= data.username %>">
+
+    <label for="details"><b>Details</b></label>
+    <textarea cols="50" rows="10" name="details"><%= data.details %></textarea>
+
+    <label for="age"><b>Age</b></label>
+    <input type="number" placeholder="Age" name="age" value="<%= data.age %>">
+    <hr>
+   
+    <label for="gender"><b>Gender</b></label>
+    <select name="gender">
+        <option value="male" <%= data.gender === 'male' ? 'selected' : '' %>>Male</option>
+        <option value="female" <%= data.gender === 'female' ? 'selected' : '' %>>Female</option>       
+    </select>
+
+    <label for="initialWeight"><b>Initial Weight</b></label>
+    <input type="number" placeholder="Initial Weight" name="initialWeight" value="<%= data.initialWeight %>">
+
+
+    <label for="currentWeight"><b>Current Weight</b></label>
+    <input type="number" placeholder="Current Weight" name="currentWeight" value="<%= data.currentWeight %>">
+
+    <label for="appliedToSchoolAt"><b>Applied to School At</b></label>
+    <input type="date" name="appliedToSchoolAt" value="<%= data.appliedToSchoolAt %>">
+
+    <label for="height"><b>Height</b></label>
+    <input type="number" placeholder="Height" name="height" value="<%= data.height %>">    
+    
+
+
+    <label for="attendanceDays"><b>Attendance Days</b></label>
+    <input type="text" placeholder="Comma-separated days (e.g., Monday,Wednesday,Friday)" name="attendanceDays"
+        value="<%= data.attendanceDays %>">
+
+    <label for="points"><b>Points</b></label>
+    <input type="number" placeholder="Points" name="points" value="<%= data.points %>">
+
+    <input type="submit" value="Update" class="btn">
+
+
+</form>

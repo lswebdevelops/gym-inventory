@@ -156,12 +156,12 @@ router.get("/unauthorized", (req, res) => {
 //       details: "Some details about Paula",
 //       age: 25,
 //       gender: "female",
-//       inicialWeight: 150,
+//       initialWeight: 150,
 //       currentWeight: 140,
 //       applyedToSchoolAt: new Date("2022-01-01"),
 //       height: 160,
 //       lastPaymentDate: new Date("2023-05-01"),
-//       isPaymentReceived: true,
+//       
 //       attendanceDays: ["Monday", "Wednesday", "Friday"],
 //     },
 //     {
@@ -170,12 +170,12 @@ router.get("/unauthorized", (req, res) => {
 //       details: "Some details about John",
 //       age: 30,
 //       gender: "male",
-//       inicialWeight: 180,
+//       initialWeight: 180,
 //       currentWeight: 175,
 //       applyedToSchoolAt: new Date("2022-02-15"),
 //       height: 175,
 //       lastPaymentDate: new Date("2023-04-15"),
-//       isPaymentReceived: true,
+//       
 //       attendanceDays: ["Tuesday", "Thursday"],
 //     },
 //     {
@@ -184,12 +184,12 @@ router.get("/unauthorized", (req, res) => {
 //       details: "Some details about Alice",
 //       age: 28,
 //       gender: "female",
-//       inicialWeight: 140,
+//       initialWeight: 140,
 //       currentWeight: 135,
 //       applyedToSchoolAt: new Date("2022-03-10"),
 //       height: 155,
 //       lastPaymentDate: new Date("2023-03-10"),
-//       isPaymentReceived: true,
+//       
 //       attendanceDays: ["Monday", "Wednesday", "Friday"],
 //     },
 //     {
@@ -198,12 +198,12 @@ router.get("/unauthorized", (req, res) => {
 //       details: "Some details about Bob",
 //       age: 32,
 //       gender: "male",
-//       inicialWeight: 200,
+//       initialWeight: 200,
 //       currentWeight: 195,
 //       applyedToSchoolAt: new Date("2022-04-20"),
 //       height: 180,
 //       lastPaymentDate: new Date("2023-02-20"),
-//       isPaymentReceived: true,
+//       
 //       attendanceDays: ["Monday", "Tuesday", "Thursday"],
 //     },
 //     {
@@ -212,12 +212,12 @@ router.get("/unauthorized", (req, res) => {
 //       details: "Some details about Eva",
 //       age: 26,
 //       gender: "female",
-//       inicialWeight: 130,
+//       initialWeight: 130,
 //       currentWeight: 128,
 //       applyedToSchoolAt: new Date("2022-05-05"),
 //       height: 150,
 //       lastPaymentDate: new Date("2023-01-05"),
-//       isPaymentReceived: true,
+//       
 //       attendanceDays: ["Wednesday", "Friday"],
 //     },
 //     {
@@ -226,12 +226,12 @@ router.get("/unauthorized", (req, res) => {
 //       details: "Some details about Charlie",
 //       age: 29,
 //       gender: "male",
-//       inicialWeight: 170,
+//       initialWeight: 170,
 //       currentWeight: 165,
 //       applyedToSchoolAt: new Date("2022-06-15"),
 //       height: 175,
 //       lastPaymentDate: new Date("2023-06-15"),
-//       isPaymentReceived: true,
+//       
 //       attendanceDays: ["Tuesday", "Thursday"],
 //     },
 //   ]);

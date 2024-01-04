@@ -83,24 +83,21 @@ router.post("/admin", async (req, res) => {
  */
 
 router.get("/dashboard", authMiddleware, async (req, res) => {
+  try {
+    const locals = {
+      title: `Dashboard`,
+      description: webSiteDescription,
+    };
 
-    try {
-        const locals = {
-            title: `Dashboard`,
-            description: webSiteDescription,
-          };
-
-        const data = await Student.find();
-        res.render("admin/dashboard", {
-            locals, 
-            data
-        });
-        
-    } catch (error) {
-        console.log(error);
-    }
-
-
+    const data = await Student.find();
+    res.render("admin/dashboard", {
+      locals,
+      data,
+      layout: adminLayout,
+    });
+  } catch (error) {
+    console.log(error);
+  }
 });
 
 /**
@@ -108,10 +105,158 @@ router.get("/dashboard", authMiddleware, async (req, res) => {
  * admin create new student
  */
 
+router.get("/add-student", authMiddleware, async (req, res) => {
+  try {
+    const locals = {
+      title: `Add Student`,
+      description: webSiteDescription,
+    };
+
+    const data = await Student.find();
+    res.render("admin/add-student", {
+      locals,
+      layout: adminLayout,
+    });
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+/**
+ * post/
+ * admin create new student
+ */
+
+router.post("/add-student", authMiddleware, async (req, res) => {
+  try {   
+    try {
+    //   const newStudent = new Student({
+    //     name: req.body.name,
+    //     details: req.body.details,
+    //   });
+    // Correct the misspelling from applyedToSchoolAt to appliedToSchoolAt
+const {
+    name,
+    username,
+    details,
+    age,
+    gender,
+    initialWeight,
+    currentWeight,
+    appliedToSchoolAt,
+    height,
+    lastPaymentDate,
+   
+    attendanceDays,
+    points,
+    
+} = req.body;
+
+const newStudent = new Student({
+    name,
+    username,
+    details,
+    age,
+    gender,
+    initialWeight,
+    currentWeight,
+    appliedToSchoolAt, // Correct the misspelling here
+    height,
+    lastPaymentDate,
+   
+    attendanceDays: attendanceDays.split(','), // assuming it's a comma-separated string
+    points,
+    
+});
+
+
+      await Student.create(newStudent);
+      res.redirect("/dashboard");
+
+    } catch (error) {
+        console.log(error);
+    }
+
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+/**
+ * get/
+ * admin create new student
+ */
+
+router.get("/edit-student/:id", authMiddleware, async (req, res) => {
+    try {   
+
+        const locals = {
+            title: `Add Student`,
+            description: webSiteDescription,
+          };
+
+       const data = await Student.findOne( { _id: req.params.id })
+
+        res.render('admin/edit-student', {
+            data,
+            layout: adminLayout,
+            locals
+
+        })
+  
+    } catch (error) {
+      console.log(error);
+    }
+  });
 
 
 
 
+
+/**
+ * put/
+ * admin create new student
+ */
+
+router.put("/edit-student/:id", authMiddleware, async (req, res) => {
+    try {   
+
+        await Student.findByIdAndUpdate(req.params.id,  {
+            name: req.body.name,            
+            points: req.body.points,           
+            username: req.body.username,
+            initialWeight: req.body.initialWeight,
+            currentWeight: req.body.currentWeight,
+            age: req.body.age,
+            gender: req.body.gender,
+            height: req.body.height,
+            lastPaymentDate: req.body.lastPaymentDate,
+            appliedToSchoolAt: req.body.appliedToSchoolAt,
+           
+            attendanceDays: req.body.attendanceDays,
+            details: req.body.details,
+            updatedAt: Date.now(),
+        })
+
+        res.redirect(`/edit-student/${req.params.id}`)
+  
+    } catch (error) {
+      console.log(error);
+    }
+  });
+
+/**
+ * delete/
+ * admin delete
+ */
+router.delete("/delete-student/:id", authMiddleware, async (req, res) => {
+    try {
+        await Student.deleteOne( { _id: req.params.id})
+        res.redirect('/dashboard')
+    } catch (error) {
+        console.log(error);
+    }
+});
 
 
 
