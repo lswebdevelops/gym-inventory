@@ -145,11 +145,10 @@ const {
     currentWeight,
     appliedToSchoolAt,
     height,
-    lastPaymentDate,
-   
+    lastPaymentDate,   
     attendanceDays,
     points,
-    
+    updatedAt
 } = req.body;
 
 const newStudent = new Student({
@@ -160,13 +159,12 @@ const newStudent = new Student({
     gender,
     initialWeight,
     currentWeight,
-    appliedToSchoolAt, // Correct the misspelling here
+    appliedToSchoolAt: new Date(appliedToSchoolAt),
     height,
-    lastPaymentDate,
-   
+    lastPaymentDate: new Date(lastPaymentDate),    
     attendanceDays: attendanceDays.split(','), // assuming it's a comma-separated string
     points,
-    
+    updatedAt: new Date(),
 });
 
 
@@ -188,21 +186,30 @@ const newStudent = new Student({
  */
 
 router.get("/edit-student/:id", authMiddleware, async (req, res) => {
-    try {   
+  try {
+      const locals = {
+          title: `Edit Student`,
+          description: webSiteDescription,
+      };
 
-        const locals = {
-            title: `Add Student`,
-            description: webSiteDescription,
-          };
+      const student = await Student.findOne({ _id: req.params.id });
 
-       const data = await Student.findOne( { _id: req.params.id })
+        // Log the student object to the console
+        console.log(student);
 
-        res.render('admin/edit-student', {
-            data,
-            layout: adminLayout,
-            locals
+        // Check if the student object and its date properties exist
+        if (student && student.appliedToSchoolAt && student.lastPaymentDate && student.updatedAt) {
+            // Format the date properties to string representations
+            student.appliedToSchoolAt = student.appliedToSchoolAt.toDateString();
+            student.lastPaymentDate = student.lastPaymentDate.toDateString();
+            student.updatedAt = student.updatedAt.toDateString();
+        }
 
-        })
+      res.render('admin/edit-student', {
+          data: student,
+          layout: adminLayout,
+          locals
+      });
   
     } catch (error) {
       console.log(error);

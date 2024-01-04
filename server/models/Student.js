@@ -29,7 +29,8 @@ const StudentSchema = new Schema({
     },
     initialWeight: {
         type: Number, 
-        required: false, // Set to false temporarily
+        required: false, 
+        default: null,
     },
     currentWeight: {
         type: Number, 
@@ -37,17 +38,14 @@ const StudentSchema = new Schema({
     },
     appliedToSchoolAt: {
         type: Date, 
-        required: false, // Set to false temporarily
+        required: false, 
+        default: null,
     },
     height: {
         type: Number, 
         required: false,
     },
-    lastPaymentDate: {
-        type: Date,
-        required: false,
-    },
-   
+      
     attendanceDays: {
         type: [String], // An array of strings representing days of the week (e.g., ['Monday', 'Wednesday', 'Friday'])
         required: true,

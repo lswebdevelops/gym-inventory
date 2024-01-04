@@ -45,9 +45,7 @@
         <p><b>Height: </b>
             <%= data.height %> cm
         </p>
-        <p><b>Last Payment Day: </b>
-            <%= data.lastPaymentDate%>
-        </p>
+        
        
         <p><b>Attendance Days:</b>
             <%= data.attendanceDays %>
@@ -56,10 +54,12 @@
             <%= data.details %>
         </p>
         <p><b>Starting Date: </b>
-            <%= data.appliedToSchoolAt %>
+            <%= data.appliedToSchoolAt ? data.appliedToSchoolAt.toDateString() : 'N/A' %>
+   
         </p>
         <p><b>Last Info Updated: </b>
-            <%= data.updatedAt %>
+            <%= data.updatedAt ? data.updatedAt.toDateString() : 'N/A' %>
+    
         </p>
     </div>
 
