@@ -259,13 +259,16 @@ img {
   font-family: poets electra, Georgia, times new roman, serif;
 }
 
+
 /* Dashboard Admin */
 .admin-title {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-
+.btn-img-logout {
+  width: 25px;
+}
 .admin-posts {
   padding: 0;
   margin: 0;
@@ -539,4 +542,5 @@ img {
   .div-student-page-img-container {
     display: none;
   }
+  
 }
