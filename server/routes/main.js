@@ -131,12 +131,20 @@ router.get("/confirmedPresence", (req, res) => {
   };
   res.render("confirmedPresence", { locals });
 });
+
 router.get("/ranking", (req, res) => {
   const locals = {
     title: "Ranking",
     description: webSiteDescription,
   };
   res.render("ranking", { locals });
+});
+router.get("/unauthorized", (req, res) => {
+  const locals = {
+    title: "Unauthorized",
+    description: webSiteDescription,
+  };
+  res.render("unauthorized", { locals });
 });
 
 
