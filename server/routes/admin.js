@@ -68,7 +68,7 @@ router.post("/admin", async (req, res) => {
 
     const token = jwt.sign({ userId: user._id }, jwtSecret);
     res.cookie("token", token, { httpOnly: true });
-    
+
     // Redirect to the dashboard upon successful login
     res.redirect("/dashboard");
   } catch (error) {
@@ -79,12 +79,42 @@ router.post("/admin", async (req, res) => {
 
 /**
  * get/
- * dashboard
+ * admin dashboard
  */
 
 router.get("/dashboard", authMiddleware, async (req, res) => {
-  res.render("admin/dashboard");
+
+    try {
+        const locals = {
+            title: `Dashboard`,
+            description: webSiteDescription,
+          };
+
+        const data = await Student.find();
+        res.render("admin/dashboard", {
+            locals, 
+            data
+        });
+        
+    } catch (error) {
+        console.log(error);
+    }
+
+
 });
+
+/**
+ * get/
+ * admin create new student
+ */
+
+
+
+
+
+
+
+
 
 /**
  * post/

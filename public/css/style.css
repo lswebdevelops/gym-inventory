@@ -248,6 +248,36 @@ img {
 .article-ul:hover li:hover {
   filter: none;
 }
+.button-edit-student {
+border: none;
+width: 35px;
+height: 35px;
+background-color: var(--background-rgb);
+padding: 4px;
+
+;
+}
+.button-delete-student {
+border: none;
+width: 35px;
+height: 35px;
+background-color: var(--background-rgb);
+padding: 4px;
+
+}
+.button-edit-student:hover {
+  scale: 1.02;
+  background-color: rgb(99, 165, 78);
+  border-radius: 4px;
+}
+.button-delete-student:hover {
+  scale: 1.02;
+  background-color: rgb(209, 108, 108);
+  
+  border-radius: 4px;
+  }
+
+
 
 .article {
   white-space: pre-line;
@@ -272,6 +302,9 @@ img {
 .admin-posts {
   padding: 0;
   margin: 0;
+}
+.admin-posts li {
+  border-bottom: #ddd8d8 1px solid;
 }
 
 .admin-post-controls form {
@@ -349,7 +382,7 @@ img {
   bottom: 0;
   left: 0;
   margin-bottom: 0;
-  width: 100%;
+  width: 98%;
   background-color: var(--background-rgb);
   padding: 1rem;
   text-align: center;
