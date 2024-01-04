@@ -11,6 +11,10 @@ const PORT = 3000 || process.env.PORT;
 // connect to DB
 connectDB()
 
+// adding middleware
+app.use(express.urlencoded( { extended: true}))
+app.use(express.json())
+
 // public folder setting
 app.use(express.static('public'))
 

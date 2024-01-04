@@ -69,7 +69,7 @@ router.get("/student/:id", async (req, res) => {
  *
  */
 
-router.get("/search", async (req, res) => {
+router.post("/search", async (req, res) => {
  
 
   try {
@@ -79,8 +79,21 @@ router.get("/search", async (req, res) => {
       description: webSiteDescription,
     };
 
+    let  searchTerm = req.body.searchTerm;
+    const searchNoSpecialChar = searchTerm.replace(/[^a-zA-Z0-9 ]/g, '');
 
-    res.render("search", { locals, data });
+    const data = await Student.find({
+      $or: [
+        {name: { $regex: new RegExp(searchNoSpecialChar, "i")}},
+        {username: { $regex: new RegExp(searchNoSpecialChar, "i")}},
+        // {age: { $regex: new RegExp(searchNoSpecialChar, "i")}}
+      ]
+    })
+
+    res.render("search", { 
+      locals,
+       data,
+      });
   } catch (error) {
     console.log(error);
   }

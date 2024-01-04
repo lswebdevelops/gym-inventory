@@ -1,0 +1,29 @@
+<div class="author">
+    <h1 class="author__heading">Search Results</h1>
+</div>
+
+<section class="articles-search">
+
+    <ul class="article-ul-search">
+        <% data.forEach(element=> { %>
+            <li>
+                <a href="/student/<%= element._id %>">
+                    <p>
+                        <b>Name:</b> <%= element.name %>
+                    </p>
+                   
+                    <p class="article-list__date-search">
+                      <b>Points:</b> <%= element.points %>
+                    </p>
+                    <!-- calculating weight lost/ put on -->
+        <p><b>Weight Lost: </b>
+            <%= element.inicialWeight - element.currentWeight %> kg
+        </p>
+
+        <!--  -->
+                    <img  class="article-list__date-search image-student-page" src="<%= element.gender === 'female' ? '/icons/woman.png' :  '/icons/man.png' %>" alt="<%= element.gender %> icon">
+                </a>
+            </li>
+            <% }) %>
+    </ul>
+</section>

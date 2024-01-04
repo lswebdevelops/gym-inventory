@@ -88,18 +88,17 @@ img {
 .hero-image {
   width: 100%; /* Set the width to 100% to ensure responsiveness */
   height: auto; /* Allow the height to adjust automatically based on the width */
-  max-width: 900px;  
+  max-width: 900px;
   filter: drop-shadow(0px 44px 34px rgba(0, 0, 0, 0.25));
   overflow: hidden; /* Use 'hidden' to crop the image if it exceeds the specified dimensions */
   border-radius: var(--border-radius);
 }
 
-
 /* Main Header */
 .header {
   display: grid;
   align-items: center;
-  
+
   grid-template-columns: 1fr 1fr;
   grid-template-rows: auto;
   grid-template-areas:
@@ -107,10 +106,9 @@ img {
     "menu menu";
   padding-top: 10px;
 }
- .icon-navbar { 
+.icon-navbar {
   width: 22px;
- }
-
+}
 
 .header__logo {
   font-weight: 800;
@@ -228,8 +226,6 @@ img {
   margin: 18px 0;
 }
 
-
-
 .article-ul li {
   font-size: 24px;
   cursor: pointer;
@@ -262,8 +258,6 @@ img {
   font-size: 1.7rem;
   font-family: poets electra, Georgia, times new roman, serif;
 }
-
-
 
 /* Dashboard Admin */
 .admin-title {
@@ -359,14 +353,15 @@ img {
   box-shadow: var(--upper-box-shadow);
 }
 
-.header__nav svg , .header__nav img{
+.header__nav svg,
+.header__nav img {
   width: 0;
 }
 
 .students-grid {
   list-style: none;
   display: flex;
-  justify-content: space-around;  
+  justify-content: space-around;
   margin: auto;
   flex-wrap: wrap;
   gap: 8px;
@@ -383,33 +378,35 @@ img {
 .students-grid img {
   height: auto;
   margin-bottom: 0;
-  border-radius: 10px;  
-  
+  border-radius: 10px;
 }
 .students-grid a {
   text-decoration: none;
 }
 
 .student-link-h1 {
-  text-decoration: none;;
+  text-decoration: none;
 }
-
+.x-close-icon {
+  background-color: white;
+  width: 2rem;
+  border-radius: 50%;
+}
 .div-student-page-container {
- 
   display: flex;
   justify-content: left;
   flex-wrap: wrap;
-;
- 
 }
-.div-student-page-para-container { 
-  padding: 6px;
- 
-width: 50%;
-min-width: 230px;
+.div-student-page-para-container {
+  padding: 6px 6px 0  6px; 
+  width: 50%;
+  min-width: 230px;
+  margin-bottom: 0;
+  padding-bottom: 0;
 }
-.div-student-page-para2-container { 
-  padding: 6px;
+.div-student-page-para2-container {
+  padding: 0  6px 6px 6px; 
+  margin-top: 0;
   width: 50%;
   min-width: 330px;
 }
@@ -422,46 +419,72 @@ min-width: 230px;
   min-width: 190px;
 }
 .image-student-page {
-  
   width: 100px;
   height: auto;
   border-radius: 10px;
-  
 }
 
-
-
-
-
-@media only screen and (min-width: 768px) {
+.articles-search {
+  display: flex;
+  justify-content: center;
+ 
+}
+.article-ul-search {
+ 
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  margin: 0;
+  padding: 0;
+  
+  flex-wrap: wrap;
+  margin-bottom: 50px;
+}
+.article-ul-search li {
+  width:200px; 
+  border-radius: 10px;
+  margin: 0;
+  display: flex;
+  list-style: none;
+  padding: 4px;
+  justify-content: center;
+  border: #8f8c8c 1px solid;
+}
+.article-ul-search li a {
+  text-decoration: none;
+}
+/*  media query for the header  */
+@media only screen and (min-width: 1000px) {
   .header {
     grid-template-columns: auto 1fr auto;
     grid-template-areas: "logo menu button";
   }
 }
+
 /* Media query for screens with a maximum width of 767px (typical for mobile devices) */
 @media only screen and (max-width: 767px) {
-  
+  .article-ul-search li {
+    width:160px; 
+  }
   .students-grid {
     list-style: none;
-    display: flex;   
+    display: flex;
     margin: 0;
     flex-wrap: wrap;
-   padding: 0;
+    padding: 0;
   }
-  
+
   .students-grid li {
-    border: 1px solid #ccc;    
+    border: 1px solid #ccc;
     text-align: center;
-    border-radius: 10px;  
-    width: 110px;   
+    border-radius: 10px;
+    width: 110px;
   }
-  
+
   .students-grid img {
     height: auto;
     margin-bottom: 0;
     border-radius: 10px;
-    
   }
 
   .article-ul li a {
@@ -478,24 +501,22 @@ min-width: 230px;
   .header__nav a {
     font-size: 0; /* Hide text by setting font-size to 0 */
   }
-  .header__nav img{
+  .header__nav img {
     width: 22px;
   }
-  
+
   .header__nav a svg {
     display: inline-block; /* Display icons */
     width: 20px; /* Set a suitable width for the icons */
     height: 20px; /* Set a suitable height for the icons */
   }
-  
+
   .author__heading {
     font-size: 1.8rem;
   }
   .articles__heading {
     font-size: 1.4rem;
-
   }
- 
 }
 
 @media only screen and (max-width: 483px) {
@@ -504,19 +525,16 @@ min-width: 230px;
   }
   .articles__heading {
     font-size: 1.2rem;
-
   }
   .header__logo {
-    
     font-size: 20px;
-    
   }
 
   .students-grid li {
-    border: 1px solid #ccc;    
+    border: 1px solid #ccc;
     text-align: center;
-    border-radius: 10px;  
-    width: 80px;   
+    border-radius: 10px;
+    width: 80px;
   }
   .div-student-page-img-container {
     display: none;
