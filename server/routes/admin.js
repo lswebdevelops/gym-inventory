@@ -14,16 +14,20 @@ const jwt = require("jsonwebtoken");
  */
 
 const authMiddleware = (req, res, next) => {
+  const locals = {
+    title: `Dashboard`,
+    description: webSiteDescription,
+  };
   const token = req.cookies.token;
   if (!token) {
-    return res.render("unauthorized");
+    return res.render("unauthorized", { locals, layout: adminLayout });
   }
   try {
     const decoded = jwt.verify(token, jwtSecret);
     req.userId = decoded.userId;
     next();
   } catch (error) {
-    res.render("unauthorized");
+    res.render("unauthorized" ,{ locals, layout: adminLayout });
   }
 };
 
@@ -51,13 +55,17 @@ router.get("/admin", async (req, res) => {
  */
 
 router.post("/admin", async (req, res) => {
+  const locals = {
+    title: `Admin`,
+    description: webSiteDescription,
+  };
   try {
     const { username, password } = req.body;
 
     const user = await User.findOne({ username });
 
     if (!user) {
-      return res.render("invalidCredentials");
+      return res.render("invalidCredentials", { locals, layout: adminLayout });
     }
 
     const isPasswordValid = await bcrypt.compare(password, user.password);
@@ -70,7 +78,8 @@ router.post("/admin", async (req, res) => {
     res.cookie("token", token, { httpOnly: true });
 
     // Redirect to the dashboard upon successful login
-    res.redirect("/dashboard");
+
+    res.redirect("/dashboard",);
   } catch (error) {
     console.log(error);
     res.status(500).json({ message: "Internal server error" });
@@ -90,7 +99,7 @@ router.get("/dashboard", authMiddleware, async (req, res) => {
     };
 
     const data = await Student.find();
-    res.render("admin/dashboard", {
+    res.render("admin/dashboard",{
       locals,
       data,
       layout: adminLayout,

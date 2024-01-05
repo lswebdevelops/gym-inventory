@@ -9,6 +9,7 @@ const app = express();
 const session = require("express-session");
 const PORT = process.env.PORT || 3000;
 const methodOverride = require('method-override')
+const { isActiveRoute } = require('./server/helpers/routeHelpers')
 
 // connect to DB
 connectDB();
@@ -41,6 +42,10 @@ app.use(express.static("public"));
 app.use(expressLayout);
 app.set("layout", "./layouts/main");
 app.set("view engine", "ejs");
+
+
+app.locals.isActiveRoute = isActiveRoute;
+
 
 // routes:
 app.use("/", require("./server/routes/main"));

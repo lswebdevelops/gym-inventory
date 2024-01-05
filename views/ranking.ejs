@@ -1,1 +1,29 @@
-<h1>ranking</h1>
+<!-- views/ranking.ejs -->
+
+<h1>Student Ranking</h1>
+
+<div class="ranking-container">
+    <div class="ranking-container-inner-header">
+        <div class="ranking-container-index-header">Ranking</div>
+        <div class="ranking-container-index-header">Student</div>
+        <div class="ranking-container-index-header">Points:</div>
+    </div>
+    <% rankedStudents.forEach((student, index)=> { %>
+        
+        
+           <div class="ranking-container-inner">
+                <div class="ranking-container-index">
+                <%= index + 1 %>
+
+            </div>
+            <div class="ranking-container-name">
+                <%= student.name.toUpperCase() %>
+
+            </div>
+            <div class="ranking-container-points">  <%= student.points %>
+            </div>
+
+           </div>
+        
+        <% }); %>
+    </div>
