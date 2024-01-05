@@ -134,18 +134,18 @@ router.post("/add-student", authMiddleware, async (req, res) => {
     //     name: req.body.name,
     //     details: req.body.details,
     //   });
-    // Correct the misspelling from applyedToSchoolAt to appliedToSchoolAt
+  
 const {
     name,
-    username,
+   
     details,
     age,
     gender,
     initialWeight,
     currentWeight,
-    appliedToSchoolAt,
+    
     height,
-    lastPaymentDate,   
+     
     attendanceDays,
     points,
     updatedAt
@@ -153,15 +153,15 @@ const {
 
 const newStudent = new Student({
     name,
-    username,
+   
     details,
     age,
     gender,
     initialWeight,
     currentWeight,
-    appliedToSchoolAt: new Date(appliedToSchoolAt),
+    
     height,
-    lastPaymentDate: new Date(lastPaymentDate),    
+      
     attendanceDays: attendanceDays.split(','), // assuming it's a comma-separated string
     points,
     updatedAt: new Date(),
@@ -195,10 +195,10 @@ router.get("/edit-student/:id", authMiddleware, async (req, res) => {
       const student = await Student.findOne({ _id: req.params.id });
 
               // Check if the student object and its date properties exist
-        if (student && student.appliedToSchoolAt && student.lastPaymentDate && student.updatedAt) {
+        if (student &&  student.updatedAt) {
             // Format the date properties to string representations
-            student.appliedToSchoolAt = student.appliedToSchoolAt.toDateString();
-            student.lastPaymentDate = student.lastPaymentDate.toDateString();
+           
+           
             student.updatedAt = student.updatedAt.toDateString();
         }
 
@@ -228,15 +228,13 @@ router.put("/edit-student/:id", authMiddleware, async (req, res) => {
         await Student.findByIdAndUpdate(req.params.id,  {
             name: req.body.name,            
             points: req.body.points,           
-            username: req.body.username,
+           
             initialWeight: req.body.initialWeight,
             currentWeight: req.body.currentWeight,
             age: req.body.age,
             gender: req.body.gender,
             height: req.body.height,
-            lastPaymentDate: req.body.lastPaymentDate,
-            appliedToSchoolAt: req.body.appliedToSchoolAt,
-           
+                      
             attendanceDays: req.body.attendanceDays,
             details: req.body.details,
             updatedAt: Date.now(),
