@@ -71,9 +71,8 @@ router.post("/admin", async (req, res) => {
     const isPasswordValid = await bcrypt.compare(password, user.password);
 
     if (!isPasswordValid) {
-      res.render("invalidCredentials");
+      return res.render("invalidCredentials", { locals, layout: adminLayout });
     }
-
     const token = jwt.sign({ userId: user._id }, jwtSecret);
     res.cookie("token", token, { httpOnly: true });
 
@@ -122,8 +121,10 @@ router.get("/add-student", authMiddleware, async (req, res) => {
     };
 
     const data = await Student.find();
+   
     res.render("admin/add-student", {
-      locals,
+      locals,    
+      data,
       layout: adminLayout,
     });
   } catch (error) {
@@ -139,38 +140,31 @@ router.get("/add-student", authMiddleware, async (req, res) => {
 router.post("/add-student", authMiddleware, async (req, res) => {
   try {   
     try {
-    //   const newStudent = new Student({
-    //     name: req.body.name,
-    //     details: req.body.details,
-    //   });
   
 const {
-    name,
-   
+    name,   
     details,
     age,
     gender,
     initialWeight,
-    currentWeight,
-    
-    height,
-     
+    currentWeight,    
+    height,     
     attendanceDays,
     points,
-    updatedAt
+    updatedAt,
 } = req.body;
+ // Check if the name already exists
+
+
 
 const newStudent = new Student({
-    name,
-   
+    name,   
     details,
     age,
     gender,
     initialWeight,
-    currentWeight,
-    
-    height,
-      
+    currentWeight,    
+    height,      
     attendanceDays: attendanceDays.split(','), // assuming it's a comma-separated string
     points,
     updatedAt: new Date(),

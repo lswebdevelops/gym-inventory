@@ -14,9 +14,6 @@
 
    
 
-    <label for="details"><b>Details</b></label>
-    <textarea cols="50" rows="10" id="details" name="details"><%= data.details %></textarea>
-
     <label for="age"><b>Age</b></label>
     <input type="number" placeholder="Age" id="age" name="age" value="<%= data.age %>">
     <hr>
@@ -28,16 +25,16 @@
     </select>
 
     <label for="initialWeight"><b>Initial Weight</b></label>
-    <input type="number" placeholder="Initial Weight" id="initialWeight" name="initialWeight" value="<%= data.initialWeight %>">
+    <input type="number" placeholder="Initial Weight (kg)" id="initialWeight" name="initialWeight" value="<%= data.initialWeight %>">
 
 
     <label for="currentWeight"><b>Current Weight</b></label>
-    <input type="number" placeholder="Current Weight" id="currentWeight" name="currentWeight" value="<%= data.currentWeight %>">
+    <input type="number" placeholder="Current Weight (kg)" id="currentWeight" name="currentWeight" value="<%= data.currentWeight %>">
    
 
   
     <label for="height"><b>Height</b></label>
-    <input type="number" placeholder="Height" id="height" name="height" value="<%= data.height %>">    
+    <input type="number" placeholder="Height (cm)" id="height" name="height" value="<%= data.height %>">    
     
 
 
@@ -47,6 +44,9 @@
 
     <label for="points"><b>Points</b></label>
     <input type="number" placeholder="Points" id="points" name="points" value="<%= data.points %>">
+
+    <label for="details"><b>Details</b></label>
+    <textarea cols="25" rows="5" id="details" name="details"><%= data.details %></textarea>
 
     <input type="submit" value="Update" class="btn">
 
