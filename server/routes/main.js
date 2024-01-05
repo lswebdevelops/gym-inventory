@@ -101,13 +101,6 @@ router.post("/search", async (req, res) => {
 
 
 
-
-
-
-
-
-
-
 router.get("/paidOnTime", (req, res) => {
   const locals = {
     title: "Bills Paid on Time",
@@ -139,103 +132,99 @@ router.get("/ranking", (req, res) => {
   };
   res.render("ranking", { locals });
 });
-router.get("/unauthorized", (req, res) => {
-  const locals = {
-    title: "Unauthorized",
-    description: webSiteDescription,
-  };
-  res.render("unauthorized", { locals });
-});
 
 
-function insertStudentData() {
-  Student.insertMany([
-    {
-      name: "Paula",
-      username: "paula01",
-      details: "Some details about Paula",
-      age: 25,
-      gender: "female",
-      initialWeight: 150,
-      currentWeight: 140,
-      appliedToSchoolAt: new Date("2022-01-01"),
-      height: 160,
-      lastPaymentDate: new Date("2023-05-01"),
+
+
+
+// function insertStudentData() {
+//   Student.insertMany([
+//     {
+//       name: "Paula",
+//       username: "paula01",
+//       details: "Some details about Paula",
+//       age: 25,
+//       gender: "female",
+//       initialWeight: 150,
+//       currentWeight: 140,
+//       appliedToSchoolAt: new Date("2022-01-01"),
+//       height: 160,
+//       lastPaymentDate: new Date("2023-05-01"),
       
-      attendanceDays: ["Monday", "Wednesday", "Friday"],
-    },
-    {
-      name: "John",
-      username: "john02",
-      details: "Some details about John",
-      age: 30,
-      gender: "male",
-      initialWeight: 180,
-      currentWeight: 175,
-      appliedToSchoolAt: new Date("2022-02-15"),
-      height: 175,
-      lastPaymentDate: new Date("2023-04-15"),
+//       attendanceDays: ["Monday", "Wednesday", "Friday"],
+//     },
+//     {
+//       name: "John",
+//       username: "john02",
+//       details: "Some details about John",
+//       age: 30,
+//       gender: "male",
+//       initialWeight: 180,
+//       currentWeight: 175,
+//       appliedToSchoolAt: new Date("2022-02-15"),
+//       height: 175,
+//       lastPaymentDate: new Date("2023-04-15"),
       
-      attendanceDays: ["Tuesday", "Thursday"],
-    },
-    {
-      name: "Alice",
-      username: "alice03",
-      details: "Some details about Alice",
-      age: 28,
-      gender: "female",
-      initialWeight: 140,
-      currentWeight: 135,
-      appliedToSchoolAt: new Date("2022-03-10"),
-      height: 155,
-      lastPaymentDate: new Date("2023-03-10"),
+//       attendanceDays: ["Tuesday", "Thursday"],
+//     },
+//     {
+//       name: "Alice",
+//       username: "alice03",
+//       details: "Some details about Alice",
+//       age: 28,
+//       gender: "female",
+//       initialWeight: 140,
+//       currentWeight: 135,
+//       appliedToSchoolAt: new Date("2022-03-10"),
+//       height: 155,
+//       lastPaymentDate: new Date("2023-03-10"),
       
-      attendanceDays: ["Monday", "Wednesday", "Friday"],
-    },
-    {
-      name: "Bob",
-      username: "bob04",
-      details: "Some details about Bob",
-      age: 32,
-      gender: "male",
-      initialWeight: 200,
-      currentWeight: 195,
-      appliedToSchoolAt: new Date("2022-04-20"),
-      height: 180,
-      lastPaymentDate: new Date("2023-02-20"),
+//       attendanceDays: ["Monday", "Wednesday", "Friday"],
+//     },
+//     {
+//       name: "Bob",
+//       username: "bob04",
+//       details: "Some details about Bob",
+//       age: 32,
+//       gender: "male",
+//       initialWeight: 200,
+//       currentWeight: 195,
+//       appliedToSchoolAt: new Date("2022-04-20"),
+//       height: 180,
+//       lastPaymentDate: new Date("2023-02-20"),
       
-      attendanceDays: ["Monday", "Tuesday", "Thursday"],
-    },
-    {
-      name: "Eva",
-      username: "eva05",
-      details: "Some details about Eva",
-      age: 26,
-      gender: "female",
-      initialWeight: 130,
-      currentWeight: 128,
-      appliedToSchoolAt: new Date("2022-05-05"),
-      height: 150,
-      lastPaymentDate: new Date("2023-01-05"),
+//       attendanceDays: ["Monday", "Tuesday", "Thursday"],
+//     },
+//     {
+//       name: "Eva",
+//       username: "eva05",
+//       details: "Some details about Eva",
+//       age: 26,
+//       gender: "female",
+//       initialWeight: 130,
+//       currentWeight: 128,
+//       appliedToSchoolAt: new Date("2022-05-05"),
+//       height: 150,
+//       lastPaymentDate: new Date("2023-01-05"),
       
-      attendanceDays: ["Wednesday", "Friday"],
-    },
-    {
-      name: "Charlie",
-      username: "charlie06",
-      details: "Some details about Charlie",
-      age: 29,
-      gender: "male",
-      initialWeight: 170,
-      currentWeight: 165,
-      appliedToSchoolAt: new Date("2022-06-15"),
-      height: 175,
-      lastPaymentDate: new Date("2023-06-15"),
+//       attendanceDays: ["Wednesday", "Friday"],
+//     },
+//     {
+//       name: "Charlie",
+//       username: "charlie06",
+//       details: "Some details about Charlie",
+//       age: 29,
+//       gender: "male",
+//       initialWeight: 170,
+//       currentWeight: 165,
+//       appliedToSchoolAt: new Date("2022-06-15"),
+//       height: 175,
+//       lastPaymentDate: new Date("2023-06-15"),
       
-      attendanceDays: ["Tuesday", "Thursday"],
-    },
-  ]);
-}
+//       attendanceDays: ["Tuesday", "Thursday"],
+//     },
+//   ]);
+// }
 
 // insertStudentData ()
 // async function updatePoints() {

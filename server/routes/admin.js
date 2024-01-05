@@ -261,6 +261,23 @@ router.delete("/delete-student/:id", authMiddleware, async (req, res) => {
         console.log(error);
     }
 });
+/**
+ * logout/
+ * admin logout
+ */
+router.get("/logout",  (req, res) => {
+  const locals = {
+    title: `Logout`,
+    description: webSiteDescription,
+};
+
+    res.clearCookie('token')
+    res.render('logout-success', {
+      locals, 
+      layout: adminLayout
+
+    })
+});
 
 
 
