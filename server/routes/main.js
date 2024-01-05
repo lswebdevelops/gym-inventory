@@ -4,8 +4,6 @@ const webSiteDescription =
   "Simple website created using NodeJs, Express and MongoDb";
 const Student = require("../models/Student");
 
-
-
 /**
  * get
  * Home
@@ -35,7 +33,7 @@ router.get("/students", async (req, res) => {
 
   try {
     const data = await Student.find();
-    res.render("students", { locals, data,  currentRoute: "/students", });
+    res.render("students", { locals, data, currentRoute: "/students" });
   } catch (error) {
     console.log(error);
   }
@@ -56,7 +54,7 @@ router.get("/student/:id", async (req, res) => {
       description: webSiteDescription,
     };
 
-    res.render("student", { locals, data, currentRoute: `/student/${slug}`, });
+    res.render("student", { locals, data, currentRoute: `/student/${slug}` });
   } catch (error) {
     console.log(error);
   }
@@ -89,61 +87,56 @@ router.post("/search", async (req, res) => {
     res.render("search", {
       locals,
       data,
-      currentRoute:  '/search'
-       });
+      currentRoute: "/search",
+    });
   } catch (error) {
     console.log(error);
   }
 });
 
+// Ranking
 
-// Ranking 
-
-router.get('/ranking', async (req, res) => {
+router.get("/ranking", async (req, res) => {
   try {
     const rankedStudents = await Student.find().sort({ points: -1 });
-    res.render('ranking', { rankedStudents ,
-      currentRoute: "/", });
+    res.render("ranking", {
+      rankedStudents,
+      currentRoute: "/ranking",
+    });
   } catch (error) {
     console.error(error);
-    res.status(500).send('Internal Server Error');
+    res.status(500).send("Internal Server Error");
   }
 });
 
+// attendance
 
-
-
-
-// router.get("/paidOnTime", (req, res) => {
-//   const locals = {
-//     title: "Bills Paid on Time",
-//     description: webSiteDescription,
-//   };
-
-//   res.render("paidOnTime", { locals, currentRoute: "/paidOnTime",});
-// });
-
-// router.get("/stillDue", (req, res) => {
-//   const locals = {
-//     title: "Bills Still Due",
-//     description: webSiteDescription,
-//   };
-//   res.render("stillDue", { locals });
-// });
-router.get("/confirmedPresence", (req, res) => {
+router.get("/attendance", async (req, res) => {
   const locals = {
-    title: "Confirmed Presence",
+    title: "Confirmed Attendance",
     description: webSiteDescription,
   };
-  res.render("confirmedPresence", { locals ,currentRoute: "/confirmedPresence", });
+  const data = await Student.find();
+  res.render("attendance", {
+    locals,
+    data,
+    currentRoute: "/attendance",
+  });
 });
 
-router.get("/ranking", (req, res) => {
-  const locals = {
-    title: "Ranking",
-    description: webSiteDescription,
-  };
-  res.render("ranking", { locals ,currentRoute: "/ranking", });
+// New route to increase points
+router.post("/increase-points/:id", async (req, res) => {
+  try {
+    const studentId = req.params.id;
+    const student = await Student.findById(studentId);
+
+    student.points += 1;
+
+    await student.save();
+    res.redirect("/attendance");
+  } catch (error) {
+    console.log(error);
+  }
 });
 
 function insertStudentData() {
@@ -229,20 +222,5 @@ function insertStudentData() {
 }
 
 // insertStudentData ()
-// async function updatePoints() {
-//   try {
-//     // Assuming each student gets 1 point when they come to the gym
-//     const pointsToAdd = 1;
 
-//     // Increment points for all students
-//     const result = await Student.updateMany({}, { $inc: { points: pointsToAdd } });
-
-//     console.log(`${result.nModified} students updated successfully.`);
-//   } catch (error) {
-//     console.error('Error updating points:', error);
-//   }
-// }
-
-// Call the function to update points
-// updatePoints();
 module.exports = router;
