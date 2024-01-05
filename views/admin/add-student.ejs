@@ -6,42 +6,42 @@
 <form action="/add-student" method="POST">
 
     <label for="name"><b>Name</b></label>
-    <input type="text" placeholder="Student's Name" name="name">
+    <input type="text" placeholder="Student's Name" id="name" autocomplete="name" name="name">
 
     <label for="username"><b>Username</b></label>
-    <input type="text" placeholder="Username" name="username">
+    <input type="text" placeholder="Username" id="username" autocomplete="username" name="username">
 
     <label for="details"><b>Details</b></label>
-    <textarea cols="50" rows="10" name="details"></textarea>
+    <textarea cols="50" rows="10" id="details" name="details"></textarea>
 
     <label for="age"><b>Age</b></label>
-    <input type="number" placeholder="Age" name="age">
+    <input type="number" placeholder="Age" id="age" name="age">
 
     <label for="gender"><b>Gender</b></label>
-    <select name="gender">
+    <select id="gender" name="gender">
         <option value="male">Male</option>
         <option value="female">Female</option>        
     </select>
 
     <label for="initialWeight"><b>Initial Weight</b></label>
-    <input type="number" placeholder="Initial Weight" name="initialWeight">
+    <input type="number" placeholder="Initial Weight" id="initialWeight" name="initialWeight">
 
 
     <label for="currentWeight"><b>Current Weight</b></label>
-    <input type="number" placeholder="Current Weight" name="currentWeight">
+    <input type="number" placeholder="Current Weight" id="currentWeight" name="currentWeight">
 
     <label for="appliedToSchoolAt"><b>Applied to School At</b></label>
-    <input type="date" name="appliedToSchoolAt">
+    <input type="date" id="appliedToSchoolAt" name="appliedToSchoolAt">
 
     <label for="height"><b>Height</b></label>
-    <input type="number" placeholder="Height" name="height">
+    <input type="number" placeholder="Height" id="height" name="height">
     
 
     <label for="attendanceDays"><b>Attendance Days</b></label>
-    <input type="text" placeholder="Comma-separated days (e.g., Monday,Wednesday,Friday)" name="attendanceDays">
+    <input type="text" placeholder="Comma-separated days (e.g., Monday,Wednesday,Friday)" id="attendanceDays" name="attendanceDays">
 
     <label for="points"><b>Points</b></label>
-    <input type="number" placeholder="Points" name="points">
+    <input type="number" placeholder="Points" id="points" name="points">
 
     <input type="submit" value="Add" class="btn">
 </form>

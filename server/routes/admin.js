@@ -194,10 +194,7 @@ router.get("/edit-student/:id", authMiddleware, async (req, res) => {
 
       const student = await Student.findOne({ _id: req.params.id });
 
-        // Log the student object to the console
-        console.log(student);
-
-        // Check if the student object and its date properties exist
+              // Check if the student object and its date properties exist
         if (student && student.appliedToSchoolAt && student.lastPaymentDate && student.updatedAt) {
             // Format the date properties to string representations
             student.appliedToSchoolAt = student.appliedToSchoolAt.toDateString();
@@ -245,7 +242,7 @@ router.put("/edit-student/:id", authMiddleware, async (req, res) => {
             updatedAt: Date.now(),
         })
 
-        res.redirect(`/edit-student/${req.params.id}`)
+        res.redirect(`/dashboard`)
   
     } catch (error) {
       console.log(error);
