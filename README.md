@@ -11,3 +11,4 @@ https://arv-gym.onrender.com/
 
 
 The website was developed for a small gym, where the teacher can track the data of the students and share it with them. There is also a ranking system to track the most diligent students.
+All this data is updated to MongoDb database.
