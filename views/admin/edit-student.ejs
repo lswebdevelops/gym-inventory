@@ -1,54 +1,54 @@
-<a href="/dashboard">&larr; Back</a>
+<a href="/dashboard">&larr; Voltar</a>
 <div class="admin-title">
-    <h2>View / Edit Student</h2>
+    <h2>Ver / Editar Estudante</h2>
 </div>
 
 <form action="/delete-student/<%= data._id %>?_method=DELETE" method="POST">
-    <input type="submit" value="Delete" class="btn-delete btn">
+    <input type="submit" value="Deletar" class="btn-delete btn">
 </form>
 
 <form action="/edit-student/<%= data._id %>?_method=PUT" method="POST">
 
-    <label for="name"><b>Name</b></label>
-    <input type="text" placeholder="Student's Name" id="name" name="name" value="<%= data.name %>">
+    <label for="name"><b>Nome</b></label>
+    <input type="text" placeholder="Nome do Estudante" id="name" name="name" value="<%= data.name %>">
 
    
 
-    <label for="age"><b>Age</b></label>
-    <input type="number" placeholder="Age" id="age" name="age" value="<%= data.age %>">
+    <label for="age"><b>Idade</b></label>
+    <input type="number" placeholder="Idade (anos)" id="age" name="age" value="<%= data.age %>">
     <hr>
    
-    <label for="gender"><b>Gender</b></label>
+    <label for="gender"><b>Gênero</b></label>
     <select name="gender" id="gender">
-        <option value="male" <%= data.gender === 'male' ? 'selected' : '' %>>Male</option>
-        <option value="female" <%= data.gender === 'female' ? 'selected' : '' %>>Female</option>       
+        <option value="male" <%= data.gender === 'male' ? 'selected' : '' %>>Masculino</option>
+        <option value="female" <%= data.gender === 'female' ? 'selected' : '' %>>Feminino</option>       
     </select>
 
-    <label for="initialWeight"><b>Initial Weight</b></label>
-    <input type="number" placeholder="Initial Weight (kg)" id="initialWeight" name="initialWeight" value="<%= data.initialWeight %>">
+    <label for="initialWeight"><b>Peso Inicial</b></label>
+    <input type="number" placeholder="Peso Inicial (kg)" id="initialWeight" name="initialWeight" value="<%= data.initialWeight %>">
 
 
-    <label for="currentWeight"><b>Current Weight</b></label>
-    <input type="number" placeholder="Current Weight (kg)" id="currentWeight" name="currentWeight" value="<%= data.currentWeight %>">
+    <label for="currentWeight"><b>Peso Atual</b></label>
+    <input type="number" placeholder="Peso Atual (kg)" id="currentWeight" name="currentWeight" value="<%= data.currentWeight %>">
    
 
   
-    <label for="height"><b>Height</b></label>
-    <input type="number" placeholder="Height (cm)" id="height" name="height" value="<%= data.height %>">    
+    <label for="height"><b>Altura</b></label>
+    <input type="number" placeholder="Altura (cm)" id="height" name="height" value="<%= data.height %>">    
     
 
 
-    <label for="attendanceDays"><b>Attendance Days</b></label>
-    <input type="text" placeholder="Comma-separated days (e.g., Monday,Wednesday,Friday)" id="attendanceDays" name="attendanceDays"
+    <label for="attendanceDays"><b>Dias de Presença</b></label>
+    <input type="text" placeholder="Separados por vírgula(ex: Segunda,Quarta,Sexta)" id="attendanceDays" name="attendanceDays"
         value="<%= data.attendanceDays %>">
 
-    <label for="points"><b>Points</b></label>
-    <input type="number" placeholder="Points" id="points" name="points" value="<%= data.points %>">
+    <label for="points"><b>Pontos</b></label>
+    <input type="number" placeholder="Pontos" id="points" name="points" value="<%= data.points %>">
 
-    <label for="details"><b>Details</b></label>
+    <label for="details"><b>Detalhes</b></label>
     <textarea cols="25" rows="5" id="details" name="details"><%= data.details %></textarea>
 
-    <input type="submit" value="Update" class="btn">
+    <input type="submit" value="Atualizar" class="btn">
 
 
 </form>

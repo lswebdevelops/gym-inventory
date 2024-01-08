@@ -1,46 +1,46 @@
-<a href="/dashboard">&larr; Back</a>
+<a href="/dashboard">&larr; Voltar</a>
 <div class="admin-title">
-    <h2>Add new Student</h2>
+    <h2>Adicionar Novo Estudante</h2>
 </div>
 
 <form action="/add-student" method="POST">
 
-    <label for="name"><b>Name</b></label>
-    <input type="text" placeholder="Student's Name" id="name" autocomplete="name" name="name">
+    <label for="name"><b>Nome</b></label>
+    <input type="text" placeholder="Nome do Estudante" id="name" autocomplete="name" name="name">
 
    
     
 
-    <label for="age"><b>Age</b></label>
-    <input type="number" placeholder="Age" id="age" name="age">
+    <label for="age"><b>Idade</b></label>
+    <input type="number" placeholder="Idade (anos)" id="age" name="age">
 
-    <label for="gender"><b>Gender</b></label>
+    <label for="gender"><b>Gênero</b></label>
     <select id="gender" name="gender">
-        <option value="male">Male</option>
-        <option value="female">Female</option>        
+        <option value="male">Masculino</option>
+        <option value="female">Feminino</option>        
     </select>
 
-    <label for="initialWeight"><b>Initial Weight</b></label>
-    <input type="number" placeholder="Initial Weight (kg)" id="initialWeight" name="initialWeight">
+    <label for="initialWeight"><b>Peso Inicial</b></label>
+    <input type="number" placeholder="Peso Inicial(kg)" id="initialWeight" name="initialWeight">
 
 
-    <label for="currentWeight"><b>Current Weight</b></label>
-    <input type="number" placeholder="Current Weight (kg)" id="currentWeight" name="currentWeight">
+    <label for="currentWeight"><b>Peso Atual</b></label>
+    <input type="number" placeholder="Peso Atual (kg)" id="currentWeight" name="currentWeight">
 
    
-    <label for="height"><b>Height</b></label>
-    <input type="number" placeholder="Height (cm)" id="height" name="height">
+    <label for="height"><b>Altura</b></label>
+    <input type="number" placeholder="Altura (cm)" id="height" name="height">
     
 
-    <label for="attendanceDays"><b>Attendance Days</b></label>
-    <input type="text" placeholder="Comma-separated days (e.g., Monday,Wednesday,Friday)" id="attendanceDays" name="attendanceDays">
+    <label for="attendanceDays"><b>Dias de Presença</b></label>
+    <input type="text" placeholder="Separados por vírgula(ex: Segunda,Quarta,Sexta)" id="attendanceDays" name="attendanceDays">
 
-    <label for="points"><b>Points</b></label>
-    <input type="number" placeholder="Points" id="points" value="0" name="points">
+    <label for="points"><b>Pontos</b></label>
+    <input type="number" placeholder="Pontos" id="points" value="0" name="points">
 
-    <label for="details"><b>Details</b></label>
+    <label for="details"><b>Detalhes</b></label>
     <textarea cols="25" rows="5" id="details" name="details"></textarea>
    
       
-    <input type="submit" value="Add" class="btn">
+    <input type="submit" value="Adicionar" class="btn">
 </form>

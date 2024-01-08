@@ -1,4 +1,4 @@
-<h1>Attendance</h1>
+<h1>Presença</h1>
 
 <ul class="students-grid">
   <% data.forEach(student => { %>
@@ -9,7 +9,7 @@
         <p><b><%= student.points %></b></p>
       </div>
       <form action="/increase-points/<%= student._id %>" method="POST">
-        <button type="submit" class="btn-present">Present</button>
+        <button type="submit" class="btn-present">Presente</button>
       </form>
     </li>
   <% }) %>

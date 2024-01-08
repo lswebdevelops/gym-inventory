@@ -1,36 +1,34 @@
 <h1>
     <a class="student-link-h1" href="/students">
-        <%= data.name %>'s Page
+        <%= data.name %>
     </a>
 </h1>
 <div class="div-student-page-container">
     <div class="div-student-page-para-container">
-        <p><b>Name: </b>
+        <p><b>Nome: </b>
             <%= data.name %>
         </p>
-        <p><b>Points: </b>
+        <p><b>Pontos: </b>
             <%= data.points %>
         </p>
-        <p><b>Username: </b>
-            <%= data.username %>
-        </p>
+       
         <!-- calculating weight lost/ put on -->
-        <p><b>Weight Lost: </b>
+        <p><b>Peso Perdido: </b>
             <%= data.initialWeight - data.currentWeight %> kg
         </p>
 
         <!--  -->
-        <p><b>Initial Weight: </b>
+        <p><b>Peso Inicial: </b>
             <%= data.initialWeight %> kg
         </p>
-        <p><b>Current Weight: </b>
+        <p><b>Peso Atual: </b>
             <%= data.currentWeight %> kg
         </p>
-        <p><b>Age: </b>
-            <%= data.age %>
+        <p><b>Idade: </b>
+            <%= data.age %> anos
         </p>
-        <p><b>Sex: </b>
-            <%= data.gender %>
+        <p><b>Gênero: </b>
+            <%= data.gender === 'female' ? "Feminino" : "Masculino" %> 
         </p>
     </div>
     <div class="div-student-page-img-container">
@@ -42,20 +40,20 @@
 
     <div class="div-student-page-para2-container">
 
-        <p><b>Height: </b>
+        <p><b>Altura: </b>
             <%= data.height %> cm
         </p>
         
        
-        <p><b>Attendance Days:</b>
+        <p><b>Dias de Comparecimento:</b>
             <%= data.attendanceDays %>
         </p>
-        <p><b>Details: </b>
+        <p><b>Detalhes: </b>
             <%= data.details %>
         </p>
      
-        <p><b>Last Info Updated: </b>
-            <%= data.updatedAt ? data.updatedAt.toDateString() : 'N/A' %>
+        <p><b>Última Atualização: </b>
+            <%= data.updatedAt ? data.updatedAt.toLocaleString(): 'N/A' %>
     
         </p>
     </div>

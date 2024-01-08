@@ -1,5 +1,5 @@
 <div class="author">
-    <h1 class="author__heading">Search Results</h1>
+    <h1 class="author__heading">Resultados da Busca</h1>
 </div>
 
 <section class="articles-search">
@@ -9,14 +9,14 @@
             <li>
                 <a href="/student/<%= element._id %>">
                     <p>
-                        <b>Name:</b> <%= element.name %>
+                        <b>Nome:</b> <%= element.name %>
                     </p>
                    
                     <p class="article-list__date-search">
-                      <b>Points:</b> <%= element.points %>
+                      <b>Pontos:</b> <%= element.points %>
                     </p>
                     <!-- calculating weight lost/ put on -->
-        <p><b>Weight Lost: </b>
+        <p><b>Peso Perdido: </b>
             <%= element.initialWeight - element.currentWeight %> kg
         </p>
 

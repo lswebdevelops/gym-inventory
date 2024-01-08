@@ -1,4 +1,4 @@
-<h1>Students</h1>
+<h1>Estudantes</h1>
 
 <ul class="students-grid">
   <% data.forEach(student => { %>
@@ -6,7 +6,7 @@
       <a href="/student/<%= student._id %>">
         <img src="<%= student.gender === 'female' ? '/icons/woman.png' :  '/icons/man.png' %>" alt="<%= student.gender %> icon">
         <p><b><%= student.name.toUpperCase() %></b></p>
-        <p>Points: <b><%= student.points %></b></p>   
+        <p>Pontos: <b><%= student.points %></b></p>   
 
       </a>
     </li>
